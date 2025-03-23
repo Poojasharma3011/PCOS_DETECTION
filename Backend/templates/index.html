@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: pink; }
+        form { display: inline-block; text-align: left; margin-top: 20px; }
+        input, select { display: block; margin-bottom: 10px; padding: 8px; width: 250px; }
+        button { padding: 10px 20px; cursor: pointer; background-color: blue; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h2>PCOS Detection System</h2>
+    <form method="post">
+        <label>Age: <input type="number" name="Age" required></label>
+        <label>Weight (kg): <input type="number" name="Weight" required></label>
+        <label>Height (cm): <input type="number" name="Height" required></label>
+        <label>BMI: <input type="number" name="BMI" required></label>
+        
+        <label for="Blood Group">Blood Group:</label>
+        <select id="Blood_Group" name="Blood_Group">
+            <option value="11">A+</option>
+            <option value="12">A-</option>
+            <option value="13">B+</option>
+            <option value="14">B-</option>
+            <option value="15">O+</option>
+            <option value="16">O-</option>
+            <option value="17">AB+</option>
+            <option value="18">AB-</option>
+        </select>
+
+        <label>Cycle Regularity (in months): <input type="number" name="Cycle_Regularity" required></label>
+        <label>Period Length (in days): <input type="number" name="Period_Length" required></label>
+
+        <label>Sudden Weight Gain? 
+            <select name="Weight_Gain">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Unwanted Facial Hair Growth? 
+            <select name="Facial_Hair">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Skin Darkening? 
+            <select name="Skin_Darkening">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Hair Loss? 
+            <select name="Hair_Loss">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Acne? 
+            <select name="Acne">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Do you consume fast food frequently? 
+            <select name="Fast_Food">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Do you exercise regularly? 
+            <select name="Regular_Exercise">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Do you often get mood swings? 
+            <select name="Mood_Swings">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label>
+
+        <label>Follicle No.(R): <input type="number" name="Follicle_NoR" required></label>
+        <label>Follicle No.(L): <input type="number" name="Follicle_NoL" required></label>
+        <label>TSH Level: <input type="number" name="TSH" required></label>
+
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if prediction %}
+        <h3>Prediction: {{ prediction['prediction'] }}</h3>
+    {% endif %}
+</body>
+</html>
